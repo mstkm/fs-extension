@@ -48,6 +48,20 @@
       "info": "https://playwright.dev",
       "votes": 0,
       "id": "zZtLnRC2Zgo"
+    },
+    {
+      "content": "an anecdote created by playwright 1790392379978",
+      "author": "Playwright",
+      "info": "https://playwright.dev",
+      "votes": 0,
+      "id": "gHshVFSx8fw"
+    },
+    {
+      "content": "an anecdote created by playwright 1790392415274",
+      "author": "Playwright",
+      "info": "https://playwright.dev",
+      "votes": 0,
+      "id": "jE4m29Dn2aU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

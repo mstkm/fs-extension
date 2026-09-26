@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import anecdoteService from "../services/anecdotes"
 
 export const useField = (type) => {
@@ -26,11 +26,15 @@ export const useField = (type) => {
 export const useAnecdotes = () => {
   const [anecdotes, setAnecdotes] = useState([])
 
-  useEffect(() => {
-    anecdoteService.getAll().then((data) => {
-      setAnecdotes(data)
+  const fetchAnecdotes = useCallback(() => {
+    anecdoteService.getAll().then(initialAnecdotes => {
+      setAnecdotes(initialAnecdotes)
     })
   }, [])
+
+  useEffect(() => {
+    fetchAnecdotes()
+  }, [fetchAnecdotes])
 
   const addAnecdote = async (newAnecdote) => {
     const savedAnecdote = await anecdoteService.createNew(newAnecdote)
@@ -44,6 +48,7 @@ export const useAnecdotes = () => {
 
   return { 
     anecdotes,
+    fetchAnecdotes,
     addAnecdote,
     deleteAnecdote
   }

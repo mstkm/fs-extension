@@ -1,7 +1,13 @@
+import { useEffect } from "react"
 import { useAnecdotes } from "../hooks"
 
 const AnecdoteList = () => {
-  const { anecdotes, deleteAnecdote } = useAnecdotes()
+  const { anecdotes, deleteAnecdote, fetchAnecdotes } = useAnecdotes()
+
+  useEffect(() => {
+    fetchAnecdotes()
+  }, [fetchAnecdotes])
+
   return (
     <div>
       <h2>Anecdotes</h2>
